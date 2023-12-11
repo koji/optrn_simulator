@@ -1,3 +1,7 @@
 tk
 requests
 pyinstaller
+opentrons
+fastapi
+uvicorn
+uuid
