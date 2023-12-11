@@ -58,24 +58,28 @@ def send_text():
 root = tk.Tk()
 
 # Create the first text box
-text_box1 = tk.Text(root, height=10, width=50)
-text_box1.pack()
+text_box1 = tk.Text(root)
+text_box1.grid(row=0, column=0, sticky="nsew")
 
 # Create a frame for the buttons
 button_frame = tk.Frame(root)
-button_frame.pack()
+button_frame.grid(row=1, column=0, sticky="nsew")
 
 # Create the 'Clear' button
 clear_button = tk.Button(button_frame, text='Clear', command=clear_text)
-clear_button.pack(side=tk.LEFT)
+clear_button.pack(side=tk.RIGHT)
 
 # Create the 'Send' button
 send_button = tk.Button(button_frame, text='Send', command=send_text)
-send_button.pack(side=tk.LEFT)
+send_button.pack(side=tk.RIGHT)
 
 # Create the second text box
-text_box2 = tk.Text(root, height=10, width=50)
-text_box2.pack()
+text_box2 = tk.Text(root)
+text_box2.grid(row=2, column=0, sticky="nsew")
+
+root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(2, weight=1)
+root.grid_columnconfigure(0, weight=1)
 
 # Start the Tkinter event loop
 root.mainloop()
