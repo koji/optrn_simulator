@@ -1,6 +1,7 @@
 import tkinter as tk
 import requests
 import uuid
+# from utils import CustomText
 
 def generate_unique_name():
     unique_name = str(uuid.uuid4()) + ".py"
@@ -49,14 +50,23 @@ def clear_text():
 def send_text():
     # Get the text from text box 1
     code = text_box1.get('1.0', tk.END)
-    
+
     response = send_code(code)
-    
+
     text_box2.insert(tk.END, response)
 
 # Create the main window
 root = tk.Tk()
+root.title("Opentrons Simulator UI")
 
+# add menubar
+menubar = tk.Menu(master=root)
+
+# add file menu
+filemenu = tk.Menu(master=menubar, tearoff=0)
+filemenu.add_command(label="Quit", command=root.quit)
+
+# text_box = Example(root)
 # Create the first text box
 text_box1 = tk.Text(root)
 text_box1.grid(row=0, column=0, sticky="nsew")
@@ -80,6 +90,10 @@ text_box2.grid(row=2, column=0, sticky="nsew")
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(2, weight=1)
 root.grid_columnconfigure(0, weight=1)
+
+# menu config
+menubar.add_cascade(label="File", menu=filemenu)
+root.config(menu=menubar)
 
 # Start the Tkinter event loop
 root.mainloop()
