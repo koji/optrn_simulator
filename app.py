@@ -48,6 +48,11 @@ def clear_text():
     text_box2.delete('1.0', tk.END)
 
 def send_text():
+    # Clear the text in text_box2
+    text_box2.delete('1.0', tk.END)
+    # Immediately update the GUI
+    root.update_idletasks()
+    
     # Get the text from text box 1
     code = text_box1.get('1.0', tk.END)
 
