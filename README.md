@@ -20,6 +20,8 @@ python app.py
 
 https://github.com/koji/optrn_simulator/assets/474225/6c78e4ee-ab8e-4a58-8375-56d6b05facaf
 
+This app is using the following simple API server.  
+https://github.com/koji/api-for-simulator
 
 # create the app
 ```zsh
